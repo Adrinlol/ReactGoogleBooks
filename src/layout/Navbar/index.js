@@ -6,7 +6,7 @@ import * as S from "./styles";
 
 import items from "./config";
 
-const NavBar = props => (
+const NavBar = () => (
   <S.Navbar>
     <Container>
       <Row type="flex" justify="space-between" align="middle">

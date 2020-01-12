@@ -1,15 +1,13 @@
 const items = [
-    {
-        title: 'Home',
-        path: '/home'
-    },
-    {
-        title: 'Favorites',
-        path: '/favorites'
-    }, {
-        title: 'Details',
-        path: '/:id'
-    }
-]
+  {
+    title: "Home",
+    path: "/home"
+  },
 
-export default items
+  {
+    title: "Favorites",
+    path: "/favorites"
+  }
+];
+
+export default items;

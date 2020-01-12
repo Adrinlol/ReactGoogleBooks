@@ -6,7 +6,7 @@ export const Navbar = styled.div`
   height: 100%;
   vertical-align: middle;
   background: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.03);
   padding: 2rem 0;
   display: flex;
   flex-flow: row wrap;

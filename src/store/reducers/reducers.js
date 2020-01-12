@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_DETAILS:
       return { ...state, currentBook: action.payload };
     case ADD_TO_FAVORITES:
-      let newState = {
+      const newState = {
         favoriteBooks: Object.assign(
           {},
           { [action.payload.id]: action.payload },
@@ -27,7 +27,7 @@ export default (state = INITIAL_STATE, action) => {
       };
       return Object.assign({}, state, newState);
     case REMOVE_FROM_FAVORITES:
-      let payload = action.payload;
+      const payload = action.payload;
       const { [payload]: value, ...updatedState } = state.favoriteBooks;
       return { ...state, favoriteBooks: { ...updatedState } };
     default:

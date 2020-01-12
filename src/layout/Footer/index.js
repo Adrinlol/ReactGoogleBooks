@@ -12,7 +12,6 @@ const Footer = () => (
           <Col lg={12} md={12} sm={24} xs={24} align="center">
             <S.NavLink to="/home">Home</S.NavLink>
             <S.NavLink to="/favorites">Favorites</S.NavLink>
-            <S.NavLink to="/:id">Details</S.NavLink>
             <S.CSite>
               Copyright © {new Date().getFullYear()}. All rights reserved.
             </S.CSite>
