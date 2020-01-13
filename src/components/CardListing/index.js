@@ -9,13 +9,16 @@ import { Row, Col } from "antd";
 const CardListing = props => {
   const { book } = props;
   const { volumeInfo } = book;
+  const thumbnail = volumeInfo.imageLinks.thumbnail.split('zoom')[0]
 
   return (
     <Container>
-      <S.Card>
-        <S.Ratio image={volumeInfo.imageLinks.large || volumeInfo.imageLinks.thumbnail}>
+      <S.Card details={props.details ? true : false}>
+        <S.Ratio
+          image={volumeInfo.imageLinks.large || thumbnail}
+        >
           <S.Thumbnail />
-        <FavoriteButton book={book} />
+          <FavoriteButton book={book} />
         </S.Ratio>
         <S.Meta>
           <S.Title>

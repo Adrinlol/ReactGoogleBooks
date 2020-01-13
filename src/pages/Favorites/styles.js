@@ -22,6 +22,7 @@ export const Background = styled.div`
 export const Text = styled.h4`
   font-size: 1.2rem;
   color: rgba(43, 57, 144, 1);
+  text-align: center;
 `;
 
 export const MCol = styled(Col)`

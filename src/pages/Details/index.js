@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBook } from "../../store/actions";
+import { fetchDetails } from "../../store/actions";
 import CardListing from "../../components/CardListing";
 import { Row } from "antd";
 import * as S from "./styles";
 
 class Details extends Component {
   componentDidMount() {
-    const bookId = this.props.location.pathname.split("/").pop();
-    this.props.fetchBook(bookId);
+    const details = this.props.match.params.id;
+    this.props.fetchDetails(details);
   }
   render() {
     const { book } = this.props;
@@ -19,7 +19,7 @@ class Details extends Component {
             <S.Margin>
               {book ? (
                 <S.MCol lg={24} md={12} sm={24} xs={24} key={book.id}>
-                  <CardListing book={book} details={true}/>
+                  <CardListing book={book} details={true} />
                 </S.MCol>
               ) : null}
             </S.Margin>
@@ -32,8 +32,8 @@ class Details extends Component {
 
 const mapStateToProps = state => {
   return {
-    book: state.books.currentBook
+    book: state.books.details
   };
 };
 
-export default connect(mapStateToProps, { fetchBook })(Details);
+export default connect(mapStateToProps, { fetchDetails })(Details);

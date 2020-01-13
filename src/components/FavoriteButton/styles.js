@@ -25,6 +25,6 @@ export const Background = styled.div`
 
 export const Button = styled.span `
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
 `

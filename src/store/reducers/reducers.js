@@ -7,7 +7,7 @@ import {
 
 const INITIAL_STATE = {
   allBooks: [],
-  currentBook: null,
+  details: "",
   favoriteBooks: {}
 };
 
@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_BOOKS:
       return { ...state, allBooks: { ...action.payload } };
     case FETCH_DETAILS:
-      return { ...state, currentBook: action.payload };
+      return { ...state, details: action.payload };
     case ADD_TO_FAVORITES:
       const newState = {
         favoriteBooks: Object.assign(

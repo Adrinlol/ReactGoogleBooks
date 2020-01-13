@@ -35,7 +35,7 @@ export const Ratio = styled.div`
     transition: transform .2s ease-in;
 
     :hover {
-        transform: scale(1.08);
+        transform: scale(1.04);
     }
 
 `;

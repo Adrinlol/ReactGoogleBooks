@@ -6,10 +6,19 @@ import { addToFavorites, removeFromFavorites } from "../../store/actions";
 import * as S from "./styles";
 
 class FavoritesBtn extends Component {
-  state = { isFavorite: false};
+  state = { isFavorite: false };
 
-  onFavoritesBtnClick = () => {
-      console.log(this.state)
+  componentDidMount() {
+    const bookId = this.props.book.id;
+    const isFavorite = this.props.favoriteBooks.hasOwnProperty(bookId);
+    if (isFavorite) {
+      this.setState({ isFavorite: true });
+    } else {
+      this.setState({ isFavorite: false });
+    }
+  }
+
+  onFavoriteClick = () => {
     this.setState({ isFavorite: !this.state.isFavorite });
     if (this.state.isFavorite) {
       this.props.removeFromFavorites(this.props.book.id);
@@ -20,7 +29,7 @@ class FavoritesBtn extends Component {
 
   render() {
     return (
-      <S.Button onClick={this.onFavoritesBtnClick}>
+      <S.Button onClick={this.onFavoriteClick}>
         {!this.state.isFavorite ? (
           <Icon src="heart.svg" />
         ) : (
@@ -33,7 +42,7 @@ class FavoritesBtn extends Component {
 
 const mapStateToProps = state => {
   return {
-    favorites: state.books.favoriteBooks
+    favoriteBooks: state.books.favoriteBooks
   };
 };
 
