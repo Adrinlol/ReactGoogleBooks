@@ -6,7 +6,7 @@
 
 
 ## Tools Used
-- React
+- React/Hooks
 - Redux
 - React Svg
 - Sass (flexbox)
