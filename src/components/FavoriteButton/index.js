@@ -1,44 +1,38 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Icon from "../../components/Icon";
 import { addToFavorites, removeFromFavorites } from "../../store/actions";
 
 import * as S from "./styles";
 
-class FavoritesBtn extends Component {
-  state = { isFavorite: false };
-
-  componentDidMount() {
-    const bookId = this.props.book.id;
-    const isFavorite = this.props.favoriteBooks.hasOwnProperty(bookId);
-    if (isFavorite) {
-      this.setState({ isFavorite: true });
+const FavoritesBtn = props => {
+  const [isFavorite, setFavorite] = useState(false);
+  
+  useEffect(() => {
+    const bookId = props.book.id;
+    const isFavorite = props.favoriteBooks.hasOwnProperty(bookId);
+    if (!isFavorite) {
+      setFavorite(false);
     } else {
-      this.setState({ isFavorite: false });
+      setFavorite(true);
     }
-  }
+  }, []);
 
-  onFavoriteClick = () => {
-    this.setState({ isFavorite: !this.state.isFavorite });
-    if (this.state.isFavorite) {
-      this.props.removeFromFavorites(this.props.book.id);
+  const onFavoriteClick = () => {
+    setFavorite(!isFavorite);
+    if (isFavorite) {
+      props.removeFromFavorites(props.book.id);
     } else {
-      this.props.addToFavorites(this.props.book);
+      props.addToFavorites(props.book);
     }
   };
 
-  render() {
-    return (
-      <S.Button onClick={this.onFavoriteClick}>
-        {!this.state.isFavorite ? (
-          <Icon src="heart.svg" />
-        ) : (
-          <Icon src="heart-hover.svg" />
-        )}
-      </S.Button>
-    );
-  }
-}
+  return (
+    <S.Button onClick={onFavoriteClick}>
+      {!isFavorite ? <Icon src="heart.svg" /> : <Icon src="heart-hover.svg" />}
+    </S.Button>
+  );
+};
 
 const mapStateToProps = state => {
   return {

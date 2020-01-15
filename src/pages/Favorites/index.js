@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import * as S from "./styles";
+import { Row } from "antd";
 
 import CardListing from "../../components/CardListing";
 
@@ -10,6 +11,7 @@ const Favorites = props => {
   return (
     <S.Background>
       <S.Container>
+      <Row type="flex" align="middle" gutter={20}>
         {favoriteBooks.length > 0 ? (
           <Fragment>
             {favoriteBooks.map(val => (
@@ -29,6 +31,7 @@ const Favorites = props => {
             </S.MCol>
           </Fragment>
         )}
+        </Row>
       </S.Container>
     </S.Background>
   );
